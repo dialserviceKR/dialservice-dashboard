@@ -39,7 +39,7 @@ export default function InquiriesPage() {
 
   const handleSaveReply = () => {
     if (selected) {
-      setInquiries(inquiries.map(i => i.id === selected.id ? { ...i, adminReply: reply, status: '완료' } : i))
+      setInquiries(inquiries.map(i => i.id === selected.id ? { ...i, adminReply: reply, status: '완료' as InquiryStatus } : i))
       setIsOpen(false)
     }
   }
@@ -48,7 +48,7 @@ export default function InquiriesPage() {
     { key: 'inquiryNumber' as const, label: '문의번호' },
     { key: 'customerName' as const, label: '고객명' },
     { key: 'title' as const, label: '제목' },
-    { key: 'status' as const, label: '상태', render: (v: string) => <StatusBadge status={v} type={getStatusType(v)} /> },
+    { key: 'status' as const, label: '상태', render: (item: Inquiry) => <StatusBadge status={item.status} type={getStatusType(item.status)} /> },
     { key: 'registeredDate' as const, label: '등록일' }
   ]
 
