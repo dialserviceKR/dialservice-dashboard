@@ -72,7 +72,7 @@ export default function InquiriesPage() {
                                                 <label className="block text-sm font-medium text-gray-700 mb-1">문의 내용</label>label>
                                                 <div className="p-3 bg-gray-50 rounded-lg">{selected.content}</div>div>
                                   </div>div>
-                                  <div>
+                                  <div> 
                                                 <label className="block text-sm font-medium text-gray-700 mb-1">답변</label>label>
                                                 <textarea value={reply} onChange={(e) => setReply(e.target.value)} rows={4} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="답변을 입력하세요..." />
                                   </div>div>
