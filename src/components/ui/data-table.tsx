@@ -28,9 +28,9 @@ export function DataTable<T extends { id: string | number }>({
   onEdit,
   onDelete,
   onView,
-  searchPlaceholder = 'ê²ì...',
+  searchPlaceholder = '검색...',
   title,
-  addButtonText = 'ì¶ê°'
+  addButtonText = '추가'
 }: DataTableProps<T>) {
   const [search, setSearch] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
@@ -98,7 +98,7 @@ export function DataTable<T extends { id: string | number }>({
               ))}
               {(onView || onEdit || onDelete) && (
                 <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  ìì
+                  작업
                 </th>
               )}
             </tr>
@@ -110,7 +110,7 @@ export function DataTable<T extends { id: string | number }>({
                   colSpan={columns.length + (onView || onEdit || onDelete ? 1 : 0)}
                   className="px-6 py-12 text-center text-gray-500"
                 >
-                  ë°ì´í°ê° ììµëë¤.
+                  데이터가 없습니다.
                 </td>
               </tr>
             ) : (
@@ -118,7 +118,9 @@ export function DataTable<T extends { id: string | number }>({
                 <tr key={item.id} className="hover:bg-gray-50">
                   {columns.map((column) => (
                     <td key={String(column.key)} className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {column.render ? column.render(item) : String(getValue(item, String(column.key)) ?? '-')}
+                      {column.render
+                        ? column.render(item)
+                        : String(getValue(item, String(column.key)) ?? '-')}
                     </td>
                   ))}
                   {(onView || onEdit || onDelete) && (
@@ -161,7 +163,7 @@ export function DataTable<T extends { id: string | number }>({
       {totalPages > 1 && (
         <div className="px-6 py-4 border-t border-gray-200 flex items-center justify-between">
           <p className="text-sm text-gray-500">
-            ì´ {filteredData.length}ê° ì¤ {startIndex + 1}-{Math.min(startIndex + itemsPerPage, filteredData.length)}
+            총 {filteredData.length}개 중 {startIndex + 1}-{Math.min(startIndex + itemsPerPage, filteredData.length)}
           </p>
           <div className="flex items-center gap-2">
             <button
