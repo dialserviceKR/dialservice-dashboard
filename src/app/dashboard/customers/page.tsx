@@ -91,18 +91,15 @@ export default function CustomersPage() {
   const [formData, setFormData] = useState<FormData>(initialFormData)
 
   const columns = [
-    { key: 'companyName' as const, label: '회사명', sortable: true },
-    { key: 'contactName' as const, label: '담당자', sortable: true },
+    { key: 'companyName' as const, label: '회사명' },
+    { key: 'contactName' as const, label: '담당자' },
     { key: 'phone' as const, label: '연락처' },
     { key: 'email' as const, label: '이메일' },
-    { key: 'transactionType' as const, label: '거래유형', sortable: true },
+    { key: 'transactionType' as const, label: '거래유형' },
     {
       key: 'status' as const,
       label: '상태',
-      sortable: true,
-      render: (value: string) => {
-        return <StatusBadge status={value} type={getStatusType(value)} />
-      }
+      render: (item: Customer) => <StatusBadge status={item.status} type={getStatusType(item.status)} />
     }
   ]
 
