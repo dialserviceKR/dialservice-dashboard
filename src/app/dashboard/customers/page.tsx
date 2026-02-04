@@ -1,25 +1,4 @@
 'use client'
-
-import { useState } from 'react'
-import { DataTable } from '@/components/ui/data-table'
-import { Modal } from '@/components/ui/modal'
-import { StatusBadge, getStatusType } from '@/components/ui/status-badge'
-
-// Types
-type TransactionType = 'ë§¤ì' | 'ë§¤ì¶' | 'ìë°©í¥'
-type CustomerStatus = 'íì±' | 'ë¹íì±' | 'ê±°ëì¤ë¨'
-
-interface Customer {
-  id: string
-  ê±°ëì²ëª: string
-  ëíì: string
-  ì°ë½ì²: string
-  ì´ë©ì¼: string
-  ì£¼ì: string
-  ê±°ëì í: TransactionType
-  ìí: CustomerStatus
-  ë±ë¡ì¼: string
-'use client'
   
 import { useState } from 'react'
   import { DataTable } from '@/components/ui/data-table'
